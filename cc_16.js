@@ -18,3 +18,17 @@ function fetchProductsThen() {
       console.error("Fetch failed:", error.message);
     });
 }
+// Task 3: Fetch Products with async/await
+async function fetchProductsAsync() {
+    try {
+      const response = await fetch(BASE_URL);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data: ${response.status}`);
+      }
+      const products = await response.json();
+      displayProducts(products);
+    } catch (error) {
+      handleError(error);
+    }
+  }
+  
